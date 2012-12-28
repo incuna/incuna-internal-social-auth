@@ -17,8 +17,10 @@ Add ``'internal_social_auth'`` to ``INSTALLED_APPS`` in your ``settings.py`` and
     SOCIAL_AUTH_USER_MODEL = 'auth.User'
 
 
-Add these two urls to your ``urls.py``::
+Add the urls to your ``urls.py``::
 
-    url(r'^complete/(?P<backend>[^/]+)/$', views.AuthComplete.as_view()),
-    url(r'^login-error/$', views.LoginError.as_view()),
+    from internal_social_auth.views import AuthComplete, LoginError
+
+    url(r'^complete/(?P<backend>[^/]+)/$', AuthComplete.as_view()),
+    url(r'^login-error/$', LoginError.as_view()),
 
