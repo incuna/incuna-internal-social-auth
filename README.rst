@@ -1,7 +1,7 @@
 incuna-internal-social-auth
 ===========================
 
-Django Social Auth extensions for the Incuna internal apps.
+Django Social Auth extras for the Incuna internal apps.
 
 Installation
 ------------
