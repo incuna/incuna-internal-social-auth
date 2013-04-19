@@ -11,5 +11,8 @@ setup(
     long_description=open('README.rst').read() + '\n\n' + open('CHANGELOG.rst').read(),
     author='Incuna Ltd',
     author_email='admin@incuna.com',
+    install_requires=[
+        'django-social-auth==0.7.22',
+    ],
 )
 
