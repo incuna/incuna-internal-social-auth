@@ -15,10 +15,11 @@ goto ``https://code.google.com/apis/console``
 After the Oauth2 has been setup place the GOOGLE_OAUTH2_CLIENT_ID &
 GOOGLE_OAUTH2_CLIENT_SECRET into your apps environment variables:
 
-``  export GOOGLE_OAUTH2_CLIENT_ID='your-apps-client-id'
+    ``export GOOGLE_OAUTH2_CLIENT_ID='your-apps-client-id'
     export GOOGLE_OAUTH2_CLIENT_SECRET='your-apps-client-secret'``
 
 If you get stuck follow Hickman's rather useful blog post:
+
 ``http://ghickman.co.uk/2012/07/22/setup-single-sign-on-in-django-using-google-oauth2.html``
 
 Installation
