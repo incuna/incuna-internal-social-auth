@@ -26,13 +26,23 @@ Installation
 
 Run ``pip install incuna-internal-social-auth``.
 
-Add ``'internal_social_auth'`` to ``INSTALLED_APPS`` in your ``settings.py`` and the Social Auth settings::
+Add ``'internal_social_auth',`` & ``'social_auth',`` to ``INSTALLED_APPS`` in your ``settings.py`` and the Social Auth settings::
+
+    from django.core.urlresolvers import reverse_lazy    
 
     # Social auth
+    AUTHENTICATION_BACKENDS = (
+        'social_auth.backends.google.GoogleOAuth2Backend',
+        'django.contrib.auth.backends.ModelBackend',
+    )
+
     GOOGLE_OAUTH2_CLIENT_ID = os.environ['GOOGLE_OAUTH2_CLIENT_ID']
     GOOGLE_OAUTH2_CLIENT_SECRET = os.environ['GOOGLE_OAUTH2_CLIENT_SECRET']
     GOOGLE_WHITE_LISTED_DOMAINS = ['incuna.com']
     SOCIAL_AUTH_USER_MODEL = 'auth.User'
+
+    LOGIN_URL = reverse_lazy('socialauth_begin', kwargs={'backend': 'google-oauth2'})
+    LOGIN_REDIRECT_URL = '/'
 
 
 Add the urls to your ``urls.py``::
@@ -41,4 +51,4 @@ Add the urls to your ``urls.py``::
 
     url(r'^complete/(?P<backend>[^/]+)/$', AuthComplete.as_view()),
     url(r'^login-error/$', LoginError.as_view()),
-
+    url(r'', include('social_auth.urls')),
