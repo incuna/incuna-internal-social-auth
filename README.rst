@@ -52,3 +52,7 @@ Add the urls to your ``urls.py``::
     url(r'^complete/(?P<backend>[^/]+)/$', AuthComplete.as_view()),
     url(r'^login-error/$', LoginError.as_view()),
     url(r'', include('social_auth.urls')),
+
+Finally run the social auth migrations::
+
+    ./manage.py migrate
