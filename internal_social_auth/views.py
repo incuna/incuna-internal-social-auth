@@ -2,7 +2,7 @@ import logging
 
 from django.contrib import messages
 from django.http import HttpResponseRedirect, HttpResponse
-from django.utils.encoding import force_text
+from django.utils.encoding import force_unicode
 from django.views.generic.base import View
 from social_auth.exceptions import AuthCanceled, AuthFailed
 from social_auth.views import complete
@@ -28,7 +28,7 @@ class AuthComplete(View):
 
     def get_failure_url(self):
         if hasattr(self, 'failure_url'):
-            return force_text(self.failure_url)
+            return force_unicode(self.failure_url)
         return '/'
 
 
