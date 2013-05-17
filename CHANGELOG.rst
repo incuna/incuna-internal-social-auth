@@ -1,6 +1,11 @@
 Changelog for incuna-internal-social-auth
 =========================================
 
+0.1.2
+-------
+
+* Django 1.5 dependancy removed.
+
 v0.1.2
 ------
 
